@@ -3,228 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中国美食记忆翻翻卡</title>
+    <title>中國美食記憶翻翻卡 · 粵語朗讀</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', 'Arial', sans-serif;
         }
-        
         body {
-            background: linear-gradient(135deg, #ffcce6 0%, #c9e6ff 100%);
+            background: linear-gradient(145deg, #fde9f0 0%, #fce4ec 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            color: #333;
+            color: #4a3f44;
         }
-        
         .container {
-            max-width: 900px;
+            max-width: 950px;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 25px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 248, 245, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 40px;
+            padding: 25px 20px 30px;
+            box-shadow: 0 12px 30px rgba(255, 140, 160, 0.2);
             text-align: center;
+            border: 3px solid #fff5f0;
         }
-        
         h1 {
-            color: #ff6b6b;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 0px #ffda79;
+            color: #e65a7a;
+            font-size: 2.6rem;
+            margin-bottom: 5px;
+            text-shadow: 3px 3px 0 #ffd9c0;
+            letter-spacing: 2px;
         }
-        
-        h2 {
-            color: #54a0ff;
-            margin: 15px 0;
+        h1 i {
+            color: #ffb07a;
+            margin: 0 6px;
         }
-        
         .intro {
             font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #576574;
-            line-height: 1.5;
+            background: #ffede8;
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 60px;
+            color: #b35d6e;
+            margin-bottom: 18px;
+            box-shadow: inset 0 -3px 0 #fccfd0;
+            border: 1px solid #ffe2d6;
         }
-        
-        /* 游戏控制区域 */
         .controls {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
+            gap: 18px;
+            margin: 18px 0 12px;
             flex-wrap: wrap;
         }
-        
         button {
-            background: #ff9ff3;
-            color: white;
+            background: #fbb8c0;
             border: none;
-            padding: 12px 25px;
+            padding: 12px 28px;
             font-size: 1.2rem;
-            border-radius: 50px;
+            border-radius: 60px;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.2s;
+            box-shadow: 0 6px 0 #d4838e, 0 8px 18px rgba(230, 90, 120, 0.2);
+            color: #fff6f0;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border: 2px solid #fff8f0;
         }
-        
+        button i {
+            margin-right: 8px;
+        }
         button:hover {
-            background: #f368e0;
             transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background: #fca8b3;
+            box-shadow: 0 8px 0 #d4838e, 0 12px 24px rgba(230, 90, 120, 0.3);
         }
-        
         button:active {
-            transform: translateY(0);
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #d4838e;
         }
-        
-        /* 游戏信息显示 */
+        button:disabled {
+            opacity: 0.5;
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #d4838e;
+            pointer-events: none;
+        }
         .game-info {
             display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-            font-size: 1.3rem;
-            color: #54a0ff;
-            font-weight: bold;
+            justify-content: center;
+            gap: 40px;
+            font-size: 1.5rem;
+            background: #ffe8df;
+            padding: 8px 25px;
+            border-radius: 100px;
+            margin: 16px auto;
+            max-width: 380px;
+            border: 2px solid #ffd4c4;
         }
-        
-        /* 卡片网格布局 */
+        .game-info span {
+            color: #e65a7a;
+            font-weight: bold;
+            min-width: 40px;
+        }
         .memory-game {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin: 0 auto;
-            max-width: 700px;
+            gap: 16px;
+            margin: 20px auto;
+            max-width: 750px;
         }
-        
         .memory-card {
-            height: 130px;
-            background: #ffda79;
-            border-radius: 15px;
+            height: 140px;
+            background: #fed9b0;
+            border-radius: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transform-style: preserve-3d;
-            transition: transform 0.5s;
+            transition: transform 0.4s ease;
             position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 0 #c29a7a, 0 8px 18px rgba(0,0,0,0.1);
+            border: 3px solid #fff8f0;
         }
-        
         .memory-card.flip {
             transform: rotateY(180deg);
         }
-        
         .memory-card .front-face,
         .memory-card .back-face {
             width: 100%;
             height: 100%;
             position: absolute;
-            border-radius: 15px;
+            border-radius: 28px;
             backface-visibility: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            object-fit: cover;
-        }
-        
-        .memory-card .front-face {
-            transform: rotateY(180deg);
-            background: white;
             overflow: hidden;
         }
-        
+        .memory-card .front-face {
+            transform: rotateY(180deg);
+            background: #ffffff;
+            padding: 4px;
+            box-shadow: inset 0 0 0 2px #ffe2d0;
+        }
         .memory-card .front-face img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 26px;
         }
-        
         .memory-card .back-face {
-            background: linear-gradient(45deg, #ff9ff3, #feca57);
-            font-size: 3rem;
-            color: white;
+            background: linear-gradient(145deg, #ffb8a0, #ff9e8a);
+            font-size: 3.4rem;
+            color: #fff6ea;
+            box-shadow: inset 0 -6px 0 #c27a64;
         }
-        
-        /* 排名区域 */
+        .memory-card .back-face i {
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+        }
+        .food-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(2px);
+            color: #fff9f0;
+            padding: 5px 2px;
+            font-size: 0.9rem;
+            text-align: center;
+            border-bottom-left-radius: 26px;
+            border-bottom-right-radius: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
         .leaderboard {
             margin-top: 30px;
-            background: #dfe6e9;
-            border-radius: 20px;
-            padding: 20px;
+            background: #ffede5;
+            border-radius: 40px;
+            padding: 18px 20px 20px;
             width: 100%;
             max-width: 600px;
+            border: 3px solid #ffdac8;
         }
-        
         .leaderboard h2 {
-            color: #ff6b6b;
-            margin-bottom: 15px;
+            color: #cf6a7a;
+            margin-bottom: 12px;
+            font-size: 1.8rem;
         }
-        
         .leaderboard-list {
             list-style: none;
             text-align: left;
             font-size: 1.2rem;
+            padding: 0 8px;
         }
-        
         .leaderboard-list li {
-            padding: 10px;
-            border-bottom: 1px dashed #aaa;
+            padding: 8px 12px;
+            border-bottom: 2px dashed #fccfc0;
             display: flex;
             justify-content: space-between;
+            background: rgba(255, 240, 230, 0.5);
+            border-radius: 30px;
+            margin-bottom: 4px;
         }
-        
         .leaderboard-list li:nth-child(odd) {
-            background: rgba(255, 255, 255, 0.5);
+            background: #fff3eb;
         }
-        
-        /* 响应式设计 */
-        @media (max-width: 768px) {
+        @media (max-width: 700px) {
             .memory-game {
                 grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
             }
-            
             .memory-card {
-                height: 110px;
+                height: 120px;
             }
         }
-        
         @media (max-width: 480px) {
             .memory-game {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
             .memory-card {
-                height: 100px;
+                height: 110px;
             }
-            
             h1 {
                 font-size: 2rem;
             }
-            
             button {
-                padding: 10px 20px;
+                padding: 8px 18px;
                 font-size: 1rem;
             }
         }
-        
-        /* 动画效果 */
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.04); }
             100% { transform: scale(1); }
         }
-        
         .pulse {
-            animation: pulse 0.5s ease-in-out;
+            animation: pulse 0.4s ease-in-out;
         }
-        
-        /* 模态框样式 */
         .modal {
             display: none;
             position: fixed;
@@ -232,340 +254,384 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(6px);
             z-index: 100;
             align-items: center;
             justify-content: center;
         }
-        
         .modal-content {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
+            background: #fffbf7;
+            padding: 30px 25px;
+            border-radius: 60px;
             text-align: center;
-            max-width: 500px;
+            max-width: 450px;
             width: 90%;
+            border: 6px solid #ffdac8;
+            box-shadow: 0 20px 40px rgba(200, 80, 80, 0.2);
         }
-        
         .modal h2 {
-            color: #ff6b6b;
-            margin-bottom: 20px;
+            color: #d96a7a;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
         }
-        
+        .modal p {
+            font-size: 1.3rem;
+            color: #4f3e42;
+        }
         .modal input {
-            padding: 12px;
+            padding: 12px 16px;
             font-size: 1.2rem;
-            border: 2px solid #ffda79;
-            border-radius: 10px;
-            margin: 15px 0;
+            border: 4px solid #ffb8a8;
+            border-radius: 60px;
+            margin: 16px 0 12px;
             width: 80%;
             text-align: center;
+            background: #fffaf5;
+            outline: none;
+            font-weight: bold;
         }
-        
-        /* 食物标签 */
-        .food-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 5px;
-            font-size: 0.9rem;
-            text-align: center;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
+        .modal input:focus {
+            border-color: #e87a8a;
+        }
+        .modal button {
+            background: #fcb0a0;
+            box-shadow: 0 5px 0 #b57a6a;
+            font-size: 1.4rem;
+            padding: 10px 32px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>中國美食翻翻樂</h1>
-        <p class="intro">這是一個記憶遊戲，找出相同的中國美食卡片進行配對！首先你有5秒時間記住所有卡片的位置，然後翻出相同的卡片完成配對。最快完成的前8名小朋友可以進入排行榜哦！</p>
-        
-        <div class="controls">
-            <button id="start-btn"><i class="fas fa-play"></i> 開始遊戲</button>
-            <button id="reset-btn"><i class="fas fa-redo"></i> 重新開始</button>
-        </div>
-        
-        <div class="game-info">
-            <div>時間: <span id="timer">0</span> 秒</div>
-            <div>配對: <span id="matches">0</span>/8</div>
-        </div>
-        
-        <div class="memory-game">
-            <!-- 卡片将通过JavaScript动态生成 -->
-        </div>
-        
-        <div class="leaderboard">
-            <h2><i class="fas fa-trophy"></i> 排行榜</h2>
-            <ol class="leaderboard-list" id="leaderboard">
-                <li>1. 小明 - 45秒</li>
-                <li>2. 小華 - 52秒</li>
-                <li>3. 美美 - 58秒</li>
-                <li>4. 寶寶 - 62秒</li>
-                <li>5. 花花 - 65秒</li>
-                <li>6. 豆豆 - 70秒</li>
-                <li>7. 丁丁 - 75秒</li>
-                <li>8. 樂樂 - 80秒</li>
-            </ol>
-        </div>
-    </div>
-    
-    <div class="modal" id="name-modal">
-        <div class="modal-content">
-            <h2>恭喜你完成遊戲！</h2>
-            <p>你用時 <span id="final-time">0</span> 秒</p>
-            <p>請輸入你的名字加入排行榜：</p>
-            <input type="text" id="player-name" maxlength="10" placeholder="你的名字">
-            <button id="submit-btn"><i class="fas fa-check"></i> 提交</button>
-        </div>
+<div class="container">
+    <h1><i class="fas fa-cookie-bite"></i> 中國美食 · 翻翻卡 <i class="fas fa-dumpling"></i></h1>
+    <div class="intro"><i class="fas fa-child"></i> 睇吓邊個記得最叻！配對相同嘅美食</div>
+
+    <div class="controls">
+        <button id="start-btn"><i class="fas fa-play"></i> 開始遊戲</button>
+        <button id="reset-btn"><i class="fas fa-undo-alt"></i> 重新開始</button>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 游戏数据
-            const foodData = [
-                { name: "北京拉麵", image: "https://resource.zhoudaosh.com/files/cimages/2019/20190621/ead5a04599aba35b4b1e6647214248f121175275.jpg!shoudaosh_img" },
-                { name: "糖耳朵", image: "https://k.sinaimg.cn/n/sinakd10114/270/w640h430/20220629/1ffa-1d20869ad86aec24b39a02f7f8686f62.jpg/w700d1q75cms.jpg" },
-                { name: "冰糖葫蘆", image: "https://downloads.ctfassets.net/pl05rcmbdryr/35ux6iYvZMz7uzdWpl83Iw/2a10234ce67ae9fbb0f30ef09d89e6b3/shutterstock_1277494621.jpg?w=1920&q=75&fm=webp" },
-                { name: "開口笑", image: "https://imgproxy.icook.network/safe/rt:fit/w:1080/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/327566/c9aa9fb416fa6e01.jpg" },
-                { name: "刀削麵", image: "https://www.chinastarnews.com/wp-content/uploads/2020/04/360%E6%88%AA%E5%9B%BE20200406205359356.jpg" },
-                { name: "狗不理包子", image: "https://i.epochtimes.com/assets/uploads/2021/03/id12843786-42ca4352aa-.jpg" },
-                { name: "炸肉串", image: "https://wy-static.wenxiaobai.com/aigc-online/delogo_ea66fde7-1b39-41be-99e6-43851bfa548f.webp?ratioWH=0.6666666666666666&type=opt" },
-                { name: "北京烤鴨", image: "https://omo-oss-image.thefastimg.com/portal-saas/new2023083010235964184/cms/image/2f72be64-badb-4836-a7b9-24681ed66a1c.jpg" }
-            ];
-            
-            // 游戏变量
-            let cards = [];
-            let hasFlippedCard = false;
-            let lockBoard = false;
-            let firstCard, secondCard;
-            let matchCount = 0;
-            let gameStarted = false;
-            let startTime;
-            let timerInterval;
-            
-            // DOM元素
-            const memoryGame = document.querySelector('.memory-game');
-            const timerElement = document.getElementById('timer');
-            const matchesElement = document.getElementById('matches');
-            const startButton = document.getElementById('start-btn');
-            const resetButton = document.getElementById('reset-btn');
-            const nameModal = document.getElementById('name-modal');
-            const finalTimeElement = document.getElementById('final-time');
-            const playerNameInput = document.getElementById('player-name');
-            const submitButton = document.getElementById('submit-btn');
-            
-            // 初始化游戏
-            function initGame() {
-                // 创建卡片数组（每张图片两次）
-                cards = [];
-                foodData.forEach((food, index) => {
-                    cards.push({ id: index * 2, ...food });
-                    cards.push({ id: index * 2 + 1, ...food });
-                });
-                
-                // 洗牌算法
-                shuffleCards();
-                
-                // 生成卡片HTML
-                generateCards();
-                
-                // 重置游戏状态
-                resetGame();
+    <div class="game-info">
+        <div>⏱️ <span id="timer">0</span> 秒</div>
+        <div>🧩 <span id="matches">0</span> / 8</div>
+    </div>
+
+    <div class="memory-game" id="memoryGame"></div>
+
+    <div class="leaderboard">
+        <h2><i class="fas fa-star"></i> 排行榜 <i class="fas fa-star"></i></h2>
+        <ol class="leaderboard-list" id="leaderboard">
+            <li>1. 小星星 · 32秒</li>
+            <li>2. 糖糖 · 41秒</li>
+            <li>3. 樂樂 · 47秒</li>
+            <li>4. 晴晴 · 53秒</li>
+            <li>5. 小熊 · 59秒</li>
+            <li>6. 豆豆 · 64秒</li>
+            <li>7. 咪咪 · 71秒</li>
+            <li>8. 波波 · 78秒</li>
+        </ol>
+    </div>
+</div>
+
+<div class="modal" id="nameModal">
+    <div class="modal-content">
+        <h2>🎉 你好叻呀！</h2>
+        <p>你用咗 <span id="finalTime">0</span> 秒</p>
+        <p>輸入你個名上榜啦：</p>
+        <input type="text" id="playerName" maxlength="10" placeholder="你叫咩名？">
+        <button id="submitBtn"><i class="fas fa-pen"></i> 上榜</button>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // ---------- 食物資料 ----------
+        const foodData = [
+            { name: "北京拉麵", image: "https://resource.zhoudaosh.com/files/cimages/2019/20190621/ead5a04599aba35b4b1e6647214248f121175275.jpg!shoudaosh_img" },
+            { name: "糖耳朵", image: "https://k.sinaimg.cn/n/sinakd10114/270/w640h430/20220629/1ffa-1d20869ad86aec24b39a02f7f8686f62.jpg/w700d1q75cms.jpg" },
+            { name: "冰糖葫蘆", image: "https://downloads.ctfassets.net/pl05rcmbdryr/35ux6iYvZMz7uzdWpl83Iw/2a10234ce67ae9fbb0f30ef09d89e6b3/shutterstock_1277494621.jpg?w=1920&q=75&fm=webp" },
+            { name: "開口笑", image: "https://imgproxy.icook.network/safe/rt:fit/w:1080/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/327566/c9aa9fb416fa6e01.jpg" },
+            { name: "刀削麵", image: "https://www.chinastarnews.com/wp-content/uploads/2020/04/360%E6%88%AA%E5%9B%BE20200406205359356.jpg" },
+            { name: "狗不理包子", image: "https://i.epochtimes.com/assets/uploads/2021/03/id12843786-42ca4352aa-.jpg" },
+            { name: "炸肉串", image: "https://wy-static.wenxiaobai.com/aigc-online/delogo_ea66fde7-1b39-41be-99e6-43851bfa548f.webp?ratioWH=0.6666666666666666&type=opt" },
+            { name: "北京烤鴨", image: "https://omo-oss-image.thefastimg.com/portal-saas/new2023083010235964184/cms/image/2f72be64-badb-4836-a7b9-24681ed66a1c.jpg" }
+        ];
+
+        // ----- 遊戲狀態 -----
+        let cards = [];
+        let hasFlipped = false;
+        let lockBoard = false;
+        let firstCard, secondCard;
+        let matchCount = 0;
+        let gameStarted = false;
+        let timerInterval = null;
+        let startTime = null;
+        let isPreview = false;    
+
+        // DOM
+        const memoryGame = document.getElementById('memoryGame');
+        const timerSpan = document.getElementById('timer');
+        const matchesSpan = document.getElementById('matches');
+        const startBtn = document.getElementById('start-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        const modal = document.getElementById('nameModal');
+        const finalTimeSpan = document.getElementById('finalTime');
+        const playerNameInput = document.getElementById('playerName');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // ----- 語音朗讀 (粵語) -----
+        function speakCantonese(text) {
+            if (!window.speechSynthesis) return;
+            // 取消任何正在播放的語音
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'zh-HK';     // 粵語 (香港)
+            utterance.rate = 0.85;
+            utterance.pitch = 1.2;
+            utterance.volume = 1;
+            // 揀選粵語語音 (若存在)
+            const voices = window.speechSynthesis.getVoices();
+            const cantoneseVoice = voices.find(v => v.lang.includes('HK') || v.lang.includes('yue'));
+            if (cantoneseVoice) utterance.voice = cantoneseVoice;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // 強制載入語音 (部分瀏覽器需要)
+        if (window.speechSynthesis) {
+            window.speechSynthesis.getVoices();
+            window.speechSynthesis.onvoiceschanged = () => {
+                window.speechSynthesis.getVoices();
+            };
+        }
+
+        // ----- 工具函數 -----
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
             }
-            
-            // 洗牌函数
-            function shuffleCards() {
-                for (let i = cards.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [cards[i], cards[j]] = [cards[j], cards[i]];
-                }
+            return arr;
+        }
+
+        // 初始化牌組 (雙倍, 洗牌)
+        function buildCardDeck() {
+            const deck = [];
+            foodData.forEach((food, idx) => {
+                deck.push({ id: idx * 2, name: food.name, image: food.image });
+                deck.push({ id: idx * 2 + 1, name: food.name, image: food.image });
+            });
+            return shuffleArray(deck);
+        }
+
+        // 渲染卡片
+        function renderCards(deck) {
+            memoryGame.innerHTML = '';
+            deck.forEach((card, index) => {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'memory-card';
+                cardDiv.dataset.index = index;
+                cardDiv.dataset.name = card.name;
+
+                // front
+                const front = document.createElement('div');
+                front.className = 'front-face';
+                const img = document.createElement('img');
+                img.src = card.image;
+                img.alt = card.name;
+                img.loading = 'lazy';
+                front.appendChild(img);
+                const label = document.createElement('div');
+                label.className = 'food-label';
+                label.textContent = card.name;
+                front.appendChild(label);
+
+                // back
+                const back = document.createElement('div');
+                back.className = 'back-face';
+                back.innerHTML = '<i class="fas fa-utensils"></i>';
+
+                cardDiv.appendChild(front);
+                cardDiv.appendChild(back);
+                cardDiv.addEventListener('click', flipCard);
+                memoryGame.appendChild(cardDiv);
+            });
+        }
+
+        // ----- 卡片翻轉邏輯 -----
+        function flipCard(e) {
+            const card = e.currentTarget;
+            if (lockBoard) return;
+            if (!gameStarted || isPreview) return;
+            if (card === firstCard) return;
+            if (card.classList.contains('flip')) return;
+
+            card.classList.add('flip');
+
+            if (!hasFlipped) {
+                hasFlipped = true;
+                firstCard = card;
+                return;
             }
-            
-            // 生成卡片HTML
-            function generateCards() {
-                memoryGame.innerHTML = '';
-                cards.forEach(card => {
-                    const cardElement = document.createElement('div');
-                    cardElement.classList.add('memory-card');
-                    cardElement.dataset.food = card.name;
-                    
-                    const frontFace = document.createElement('div');
-                    frontFace.classList.add('front-face');
-                    
-                    const img = document.createElement('img');
-                    img.src = card.image;
-                    img.alt = card.name;
-                    
-                    const foodLabel = document.createElement('div');
-                    foodLabel.classList.add('food-label');
-                    foodLabel.textContent = card.name;
-                    
-                    frontFace.appendChild(img);
-                    frontFace.appendChild(foodLabel);
-                    
-                    const backFace = document.createElement('div');
-                    backFace.classList.add('back-face');
-                    backFace.innerHTML = '<i class="fas fa-utensils"></i>';
-                    
-                    cardElement.appendChild(frontFace);
-                    cardElement.appendChild(backFace);
-                    
-                    cardElement.addEventListener('click', flipCard);
-                    memoryGame.appendChild(cardElement);
-                });
-            }
-            
-            // 翻转卡片
-            function flipCard() {
-                if (lockBoard) return;
-                if (this === firstCard) return;
-                if (!gameStarted) return;
-                
-                this.classList.add('flip');
-                
-                if (!hasFlippedCard) {
-                    // 第一次点击
-                    hasFlippedCard = true;
-                    firstCard = this;
-                    return;
-                }
-                
-                // 第二次点击
-                secondCard = this;
-                checkForMatch();
-            }
-            
-            // 检查匹配
-            function checkForMatch() {
-                let isMatch = firstCard.dataset.food === secondCard.dataset.food;
-                
-                if (isMatch) {
-                    disableCards();
-                    matchCount++;
-                    matchesElement.textContent = matchCount;
-                    
-                    if (matchCount === 8) {
-                        endGame();
-                    }
-                } else {
-                    unflipCards();
-                }
-            }
-            
-            // 禁用已匹配的卡片
-            function disableCards() {
+            // 第二張
+            secondCard = card;
+            checkMatch();
+        }
+
+        function checkMatch() {
+            const name1 = firstCard.dataset.name;
+            const name2 = secondCard.dataset.name;
+            const isMatch = (name1 === name2);
+
+            if (isMatch) {
+                // 配對成功！ 讀出美食名稱 (粵語)
+                speakCantonese(name1);
+                // 鎖定卡片
                 firstCard.removeEventListener('click', flipCard);
                 secondCard.removeEventListener('click', flipCard);
-                
+                matchCount++;
+                matchesSpan.textContent = matchCount;
                 resetBoard();
-            }
-            
-            // 翻回不匹配的卡片
-            function unflipCards() {
+                if (matchCount === 8) {
+                    endGame();
+                }
+            } else {
                 lockBoard = true;
-                
                 setTimeout(() => {
                     firstCard.classList.remove('flip');
                     secondCard.classList.remove('flip');
-                    
                     resetBoard();
-                }, 1000);
+                }, 700);
             }
-            
-            // 重置棋盘状态
-            function resetBoard() {
-                [hasFlippedCard, lockBoard] = [false, false];
-                [firstCard, secondCard] = [null, null];
-            }
-            
-            // 开始游戏
-            function startGame() {
-                // 显示所有卡片5秒
-                const allCards = document.querySelectorAll('.memory-card');
-                allCards.forEach(card => card.classList.add('flip'));
-                
-                setTimeout(() => {
-                    allCards.forEach(card => card.classList.remove('flip'));
-                    gameStarted = true;
-                    startTimer();
-                }, 5000);
-                
-                startButton.disabled = true;
-            }
-            
-            // 开始计时器
-            function startTimer() {
-                startTime = new Date();
-                timerInterval = setInterval(() => {
-                    const currentTime = new Date();
-                    const elapsedTime = Math.floor((currentTime - startTime) / 1000);
-                    timerElement.textContent = elapsedTime;
-                }, 1000);
-            }
-            
-            // 结束游戏
-            function endGame() {
-                clearInterval(timerInterval);
-                const endTime = new Date();
-                const totalTime = Math.floor((endTime - startTime) / 1000);
-                
-                setTimeout(() => {
-                    finalTimeElement.textContent = totalTime;
-                    nameModal.style.display = 'flex';
-                }, 1000);
-            }
-            
-            // 重置游戏
-            function resetGame() {
-                // 重置卡片状态
-                const allCards = document.querySelectorAll('.memory-card');
-                allCards.forEach(card => {
-                    card.classList.remove('flip');
-                    card.addEventListener('click', flipCard);
-                });
-                
-                // 重置游戏变量
-                resetBoard();
-                matchCount = 0;
-                gameStarted = false;
-                matchesElement.textContent = '0';
-                timerElement.textContent = '0';
-                
-                // 清除计时器
-                clearInterval(timerInterval);
-                
-                // 启用开始按钮
-                startButton.disabled = false;
-            }
-            
-            // 提交分数
-            function submitScore() {
-                const playerName = playerNameInput.value.trim() || '小玩家';
-                const time = parseInt(finalTimeElement.textContent);
-                
-                // 这里可以添加将分数保存到排行榜的逻辑
-                alert(`${playerName}，你的成績已記錄：${time}秒！`);
-                
-                // 关闭模态框
-                nameModal.style.display = 'none';
-                
-                // 重置游戏
-                initGame();
-            }
-            
-            // 事件监听
-            startButton.addEventListener('click', startGame);
-            resetButton.addEventListener('click', initGame);
-            submitButton.addEventListener('click', submitScore);
-            
-            // 初始化游戏
-            initGame();
+        }
+
+        function resetBoard() {
+            hasFlipped = false;
+            lockBoard = false;
+            firstCard = null;
+            secondCard = null;
+        }
+
+        // ----- 遊戲流程 -----
+        function startPreview() {
+            if (isPreview) return;
+            isPreview = true;
+            gameStarted = false;   // 防止點擊
+            const allCards = document.querySelectorAll('.memory-card');
+            allCards.forEach(c => c.classList.add('flip'));
+
+            // 5秒後蓋上
+            setTimeout(() => {
+                allCards.forEach(c => c.classList.remove('flip'));
+                isPreview = false;
+                gameStarted = true;
+                startTimer();
+                startBtn.disabled = true;
+            }, 5000);
+        }
+
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            startTime = Date.now();
+            timerInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                timerSpan.textContent = elapsed;
+            }, 200);
+        }
+
+        function endGame() {
+            clearInterval(timerInterval);
+            gameStarted = false;
+            const totalTime = parseInt(timerSpan.textContent) || 0;
+            setTimeout(() => {
+                finalTimeSpan.textContent = totalTime;
+                modal.style.display = 'flex';
+                playerNameInput.value = '';
+            }, 500);
+        }
+
+        // 重置一切
+        function fullReset() {
+            // 停止計時
+            clearInterval(timerInterval);
+            timerInterval = null;
+            gameStarted = false;
+            isPreview = false;
+            hasFlipped = false;
+            lockBoard = false;
+            matchCount = 0;
+            firstCard = null;
+            secondCard = null;
+            matchesSpan.textContent = '0';
+            timerSpan.textContent = '0';
+            startBtn.disabled = false;
+            // 重新建立牌組
+            cards = buildCardDeck();
+            renderCards(cards);
+            // 關閉modal
+            modal.style.display = 'none';
+            // 取消語音
+            if (window.speechSynthesis) window.speechSynthesis.cancel();
+        }
+
+        // 提交分數 (排行榜)
+        function submitScore() {
+            const name = playerNameInput.value.trim() || '小可愛';
+            const time = parseInt(finalTimeSpan.textContent) || 0;
+            // 簡單插入排行榜 (保留前8)
+            const leaderboardList = document.getElementById('leaderboard');
+            const items = leaderboardList.querySelectorAll('li');
+            let scores = [];
+            items.forEach(li => {
+                const text = li.textContent.trim();
+                const parts = text.split('·');
+                if (parts.length === 2) {
+                    const pName = parts[0].replace(/^\d+\.\s*/, '').trim();
+                    const pTime = parseInt(parts[1].replace('秒', '').trim());
+                    if (!isNaN(pTime)) scores.push({ name: pName, time: pTime });
+                }
+            });
+            // 加入新分數
+            scores.push({ name: name, time: time });
+            scores.sort((a, b) => a.time - b.time);
+            if (scores.length > 8) scores = scores.slice(0, 8);
+            // 重新渲染
+            leaderboardList.innerHTML = '';
+            scores.forEach((item, idx) => {
+                const li = document.createElement('li');
+                li.textContent = `${idx+1}. ${item.name} · ${item.time}秒`;
+                leaderboardList.appendChild(li);
+            });
+            modal.style.display = 'none';
+            // 重置遊戲 (重新開始)
+            fullReset();
+        }
+
+        // ----- 事件綁定 -----
+        startBtn.addEventListener('click', startPreview);
+        resetBtn.addEventListener('click', fullReset);
+        submitBtn.addEventListener('click', submitScore);
+        // 點擊modal外部也可關閉? 唔需要, 保持簡單
+
+        // 初始化
+        cards = buildCardDeck();
+        renderCards(cards);
+        // 預置排行榜 (保留)
+        // 已經寫在HTML
+
+        // 額外: 按 Enter 提交
+        playerNameInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') submitScore();
         });
-    </script>
+
+        // 預先喚醒語音 (部分瀏覽器)
+        if (window.speechSynthesis) {
+            setTimeout(() => {
+                window.speechSynthesis.getVoices();
+            }, 100);
+        }
+
+    })();
+</script>
 </body>
 </html>
-
-
